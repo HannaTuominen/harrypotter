@@ -4,10 +4,12 @@ import { RouterModule, Routes } from '@angular/router';
 import {NotfoundComponent} from './notfound/notfound.component';
 import {CharactersComponent} from './characters/characters.component';
 import {HousesComponent} from './houses/houses.component';
+import {SpellsComponent} from './spells/spells.component';
 
 const appRoutes: Routes = [
   { path: 'characters', component: CharactersComponent },
   { path: 'houses', component: HousesComponent },
+  { path: 'spells', component: SpellsComponent },
   { path: '', redirectTo: 'houses', pathMatch: 'full'},
   { path: '**', component: NotfoundComponent }
   // pathmatch: 'prefix' means that is should start with the path
