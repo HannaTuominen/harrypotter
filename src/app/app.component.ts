@@ -4,8 +4,8 @@ import { Component } from '@angular/core';
   selector: 'app-root',
   template: `<h1>{{title}}</h1>
   <nav>
-    <a routerLink="/characters" routerLinkActive="active">Characters</a>
-    <a routerLink="/houses" routerLinkActive="active">Houses</a>
+    <a routerLink="/characters" routerLinkActive="active">Characters</a> |
+    <a routerLink="/houses" routerLinkActive="active">Houses</a> |
     <a routerLink="/spells" routerLinkActive="active">Spells</a>
   </nav>
   <div>
@@ -14,5 +14,5 @@ import { Component } from '@angular/core';
   styles: [`.active { background-color: lightgray; }`]
 })
 export class AppComponent {
-  title = 'harry-potter';
+  title = 'Harry Potter';
 }
