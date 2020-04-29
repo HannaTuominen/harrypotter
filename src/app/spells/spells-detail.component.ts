@@ -5,11 +5,13 @@ import { Spell } from './spells-spell';
 
 @Component({
   selector: 'app-view-detail',
-  template: `<h2>{{spell._id}}</h2>
+  template: `<h2>{{spell.spell}}</h2>
+  <p>effect: {{spell.effect}}</p>
+  <p>type: {{spell.type}}</p>
   <button (click)="back()" href="">Back</button>`
 })
 export class SpellsDetailComponent implements OnInit {
-  spell: Spell = {_id: ''};
+  spell: Spell = {_id: '', spell: '', effect: '', type: ''};
   spells: Spell[] = [];
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute, private http: HttpClient) {}

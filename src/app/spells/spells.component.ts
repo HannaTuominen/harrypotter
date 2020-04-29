@@ -9,7 +9,7 @@ import { ActivatedRoute, Params } from '@angular/router';
   template: `<h1>Spells</h1>
   <ul>
     <li *ngFor="let spell of spells" [class.selected]="spell._id == selectedId">
-      <a routerLink="{{spell._id}}">{{spell._id}}</a>
+      <a routerLink="{{spell._id}}">{{spell.spell}}</a>
     </li>
   </ul>`,
   styles: ['.selected { background-color: lightgray;}']
