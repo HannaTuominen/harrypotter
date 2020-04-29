@@ -8,11 +8,11 @@ import { AppRoutingModule } from './app-routing.module';
 import {NotfoundComponent} from './notfound/notfound.component';
 import { HttpClientModule } from '@angular/common/http';
 import {CharactersModule} from './characters/characters.module';
+import {SpellsModule} from './spells/spells.module';
 // ng g component houses
 @NgModule({
   declarations: [
     AppComponent,
-    SpellsComponent,
     HousesComponent,
     NotfoundComponent
   ],
@@ -20,7 +20,8 @@ import {CharactersModule} from './characters/characters.module';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    CharactersModule
+    CharactersModule,
+    SpellsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

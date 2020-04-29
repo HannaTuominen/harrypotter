@@ -6,7 +6,7 @@ import {SpellsComponent} from './spells/spells.component';
 
 const appRoutes: Routes = [
   { path: 'houses', component: HousesComponent },
-  { path: 'spells', component: SpellsComponent },
+  // { path: 'spells', component: SpellsComponent },
   { path: '', redirectTo: 'houses', pathMatch: 'full'},
   // pathmatch: 'prefix' means that is should start with the path
 ];
