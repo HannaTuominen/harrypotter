@@ -14,12 +14,19 @@ import { Character } from './characters-character';
   <p>Role: {{character.role}}</p>
   <p>House: {{character.house}}</p>
   <p>School: {{character.school}}</p>
+  <p>Alias: {{character.alias}}</p>
+  <p>Animagus: {{character.animagus}}</p>
+  <p>Boggart: {{character.boggart}}</p>
+  <p>Patronus: {{character.patronus}}</p>
+  <p>Species: {{character.species}}</p>
+  <p>Wand: {{character.wand}}</p>
 <!--  <p>date IS: {{character.name}} </p>-->
   <button (click)="back()" href="">Back</button>`
 })
 export class CharactersDetailComponent implements OnInit {
   character: Character = {_id: '', name: '', bloodStatus: '', deathEater: undefined,
-    dumbledoresArmy: undefined, house: 'unknown', ministryOfMagic: undefined, orderOfThePhoenix: undefined, role: '', school: 'unknown'};
+    dumbledoresArmy: undefined, house: 'unknown', ministryOfMagic: undefined, orderOfThePhoenix: undefined, role: '',
+    school: 'unknown', alias: '', animagus: '', boggart: '', patronus: '', species: '', wand: ''};
   characters: Character[] = [];
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute, private http: HttpClient) {}

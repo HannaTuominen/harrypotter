@@ -9,4 +9,10 @@ export interface Character {
   orderOfThePhoenix: boolean;
   role: string;
   school: string;
+  alias: string;
+  patronus: string;
+  species: string;
+  wand: string;
+  boggart: string;
+  animagus: string;
 }
