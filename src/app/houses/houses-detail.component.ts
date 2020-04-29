@@ -10,9 +10,9 @@ import { House } from './houses-house';
   <p>Head of House: {{house.headOfHouse}}</p>
   <p>Mascot: {{house.mascot}}</p>
   <p>School: {{house.school}}</p>
-  <p>Colors:</p><ul><li *ngFor="let house of houses">{{house.colors}}</li></ul>
-  <p>values:</p><ul><li *ngFor="let house of houses">{{house.values}}</li></ul>
-  <p>Members:</p><ul><li *ngFor="let house of houses">{{house.members}}</li></ul>
+  <p>Colors:</p><ul><li *ngFor="let color of house.colors">{{color}}</li></ul>
+  <p>values:</p><ul><li *ngFor="let value of house.values">{{value}}</li></ul>
+  <p>Members:</p><ul><li *ngFor="let member of house.members">{{member}}</li></ul>
   <button (click)="back()" href="">Back</button>`
 })
 export class HousesDetailComponent implements OnInit {
