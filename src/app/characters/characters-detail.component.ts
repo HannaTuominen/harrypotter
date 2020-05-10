@@ -2,6 +2,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import { Component, OnInit, } from '@angular/core';
 import { Character } from './characters-character';
+import {HarryPotterService} from '../harrypotter.service';
 
 @Component({
   selector: 'app-view-detail',
@@ -27,9 +28,9 @@ export class CharactersDetailComponent implements OnInit {
   character: Character = {_id: '', name: '', bloodStatus: '', deathEater: undefined,
     dumbledoresArmy: undefined, house: 'unknown', ministryOfMagic: undefined, orderOfThePhoenix: undefined, role: '',
     school: 'unknown', alias: '', animagus: '', boggart: '', patronus: '', species: '', wand: ''};
-  characters: Character[] = [];
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute, private http: HttpClient) {}
+  constructor(private router: Router, private activatedRoute: ActivatedRoute, private http: HttpClient,
+              private harryPotterService: HarryPotterService) {}
 
   back() {
     this.router.navigate(['characters', {id: this.character._id}]);
@@ -38,24 +39,10 @@ export class CharactersDetailComponent implements OnInit {
   ngOnInit() {
     this.activatedRoute.params.subscribe((paramss: Params) => {
       const id = paramss.id;
-
-      // API key
-      const key = '$2a$10$tE9Q/PpSuP7rQLFkrB2IOOcl.0ptM34qLwotYCBjL/p9DIL.o4pMK';
-
-      // create params to get all Harry Potter characters in the Slytherin house
-      const params = new HttpParams().set('key', key);
-      // .set('house', 'Slytherin'); // Create new HttpParams
-      this.http.get<Character>('https://www.potterapi.com/v1/characters/', {responseType: 'json', params}).subscribe(jsonObject => {
-        this.characters = this.saveCharacters(jsonObject);
-        this.character = this.characters.filter(character => {
-          return character._id === id;
-        })[0];
+      this.harryPotterService.fetchCharactersById(id, (jsonObject) => {
+        this.character = jsonObject;
       });
     });
   }
 
-  saveCharacters(response) {
-    console.log(response)
-    return response;
-  }
 }
