@@ -35,6 +35,12 @@ export class HarryPotterService {
     this.http.get('https://www.potterapi.com/v1/spells/', {responseType: 'json', params})
       .subscribe(response => callBackFunction(response));
   }
+  fetchSpellsById(spellId, callBackFunction) {
+    const params = new HttpParams().set('key', this.key);
+    this.http.get('https://www.potterapi.com/v1/spells/', {responseType: 'json', params})
+      .subscribe(response => callBackFunction(response));
+  }
+
   fetchCharactersById(id, callBackFunction) {
     const params = new HttpParams().set('key', this.key);
     this.http.get('https://www.potterapi.com/v1/characters/' + id, {responseType: 'json', params})
