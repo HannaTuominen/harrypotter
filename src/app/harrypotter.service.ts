@@ -8,7 +8,6 @@ import {Character} from './characters/characters-character';
 export class HarryPotterService {
   private http: HttpClient;
   key = '$2a$10$tE9Q/PpSuP7rQLFkrB2IOOcl.0ptM34qLwotYCBjL/p9DIL.o4pMK';
-  params = new HttpParams().set('key', this.key);
   constructor(http: HttpClient) {
     this.http = http;
   }

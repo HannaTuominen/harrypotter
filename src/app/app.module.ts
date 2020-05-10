@@ -9,12 +9,16 @@ import {CharactersModule} from './characters/characters.module';
 import {SpellsModule} from './spells/spells.module';
 import {HousesModule} from './houses/houses.module';
 import {HarryPotterService} from './harrypotter.service';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 // ng g component houses
 @NgModule({
   declarations: [
     AppComponent,
-    NotfoundComponent
+    NotfoundComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
