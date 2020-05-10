@@ -2,6 +2,8 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import { Component, OnInit, } from '@angular/core';
 import { House } from './houses-house';
+import { HarryPotterService } from '../harrypotter.service';
+import {Character} from '../characters/characters-character';
 
 @Component({
   selector: 'app-view-detail',
@@ -12,14 +14,14 @@ import { House } from './houses-house';
   <p>School: {{house.school}}</p>
   <p>Colors:</p><ul><li *ngFor="let color of house.colors">{{color}}</li></ul>
   <p>values:</p><ul><li *ngFor="let value of house.values">{{value}}</li></ul>
-  <p>Members:</p><ul><li *ngFor="let member of house.members">{{member}}</li></ul>
+  <p>Members:</p><ul><li *ngFor="let member of house.members">{{member.name}}</li></ul>
   <button (click)="back()" href="">Back</button>`
 })
 export class HousesDetailComponent implements OnInit {
   house: House = {_id: '', colors: [], founder: '', headOfHouse: '', mascot: '', name: '', school: '', values: [], members: []};
-  houses: House[] = [];
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute, private http: HttpClient) {}
+  constructor(private router: Router, private activatedRoute: ActivatedRoute, private http: HttpClient,
+              private harryPotterService: HarryPotterService) {}
 
   back() {
     this.router.navigate(['houses', {id: this.house._id}]);
@@ -28,23 +30,9 @@ export class HousesDetailComponent implements OnInit {
   ngOnInit() {
     this.activatedRoute.params.subscribe((paramss: Params) => {
       const id = paramss.id;
-
-      // API key
-      const key = '$2a$10$tE9Q/PpSuP7rQLFkrB2IOOcl.0ptM34qLwotYCBjL/p9DIL.o4pMK';
-
-      // create params to get all houses
-      const params = new HttpParams().set('key', key);
-      this.http.get<House>('https://www.potterapi.com/v1/houses/', {responseType: 'json', params}).subscribe(jsonObject => {
-        this.houses = this.saveCharacters(jsonObject);
-        this.house = this.houses.filter(character => {
-          return character._id === id;
-        })[0];
+      this.harryPotterService.fetchHouseById(id, (jsonObject) => {
+        this.house = jsonObject[0];
       });
     });
-  }
-
-  saveCharacters(response) {
-    console.log(response)
-    return response;
   }
 }

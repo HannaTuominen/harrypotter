@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { House } from './houses-house';
 import { ActivatedRoute, Params } from '@angular/router';
-import { HarryPotterService} from '../harrypotter.service';
+import { HarryPotterService } from '../harrypotter.service';
 
 @Component({
   selector: 'app-houses',
@@ -29,8 +29,5 @@ export class HousesComponent implements OnInit {
     this.harryPotterService.fetchHouses((result) => {
       this.houses = result;
     });
-  }
-  savehouses(response) {
-    this.houses = response;
   }
 }
