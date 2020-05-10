@@ -8,6 +8,8 @@ import { HttpClientModule } from '@angular/common/http';
 import {CharactersModule} from './characters/characters.module';
 import {SpellsModule} from './spells/spells.module';
 import {HousesModule} from './houses/houses.module';
+import {HarryPotterService} from './harrypotter.service';
+
 // ng g component houses
 @NgModule({
   declarations: [
@@ -22,7 +24,7 @@ import {HousesModule} from './houses/houses.module';
     SpellsModule,
     HousesModule
   ],
-  providers: [],
+  providers: [HarryPotterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

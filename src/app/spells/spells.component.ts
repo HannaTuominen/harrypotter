@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Spell } from './spells-spell';
-import {HttpClient, HttpParams} from '@angular/common/http';
 import { ActivatedRoute, Params } from '@angular/router';
-
+import { HarryPotterService} from '../harrypotter.service';
 
 @Component({
   selector: 'app-spells',
@@ -18,7 +17,7 @@ export class SpellsComponent implements OnInit {
 
   spells: Spell[] = [];
 
-  constructor(private http: HttpClient, private activatedRoute: ActivatedRoute) { }
+  constructor(private activatedRoute: ActivatedRoute, private harryPotterService: HarryPotterService) { }
   selectedId: number;
 
   ngOnInit() {
@@ -28,18 +27,9 @@ export class SpellsComponent implements OnInit {
       console.log(id);
       this.selectedId = id;
     });
-    // API key
-    const key = '$2a$10$tE9Q/PpSuP7rQLFkrB2IOOcl.0ptM34qLwotYCBjL/p9DIL.o4pMK';
 
-    // create params to get all spells
-    const params = new HttpParams().set('key', key);
-
-    this.http.get('https://www.potterapi.com/v1/spells/', {responseType: 'json', params})
-      .subscribe(response => this.saveCharacters(response));
-  }
-
-  saveCharacters(response) {
-    console.log(response)
-    this.spells = response;
+    this.harryPotterService.fetchSpells((result) => {
+      this.spells = result;
+    });
   }
 }
