@@ -4,11 +4,11 @@ import { Component } from '@angular/core';
   selector: 'app-root',
   template: `
   <app-header></app-header>
-  <nav>
-    <a routerLink="/characters" routerLinkActive="active">Characters</a> |
-    <a routerLink="/houses" routerLinkActive="active">Houses</a> |
-    <a routerLink="/spells" routerLinkActive="active">Spells</a>
-  </nav>
+<!--  <nav>-->
+<!--    <a routerLink="/characters" routerLinkActive="active">Characters</a> |-->
+<!--    <a routerLink="/houses" routerLinkActive="active">Houses</a> |-->
+<!--    <a routerLink="/spells" routerLinkActive="active">Spells</a>-->
+<!--  </nav>-->
   <div>
     <router-outlet></router-outlet>
   </div>
