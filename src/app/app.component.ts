@@ -4,8 +4,10 @@ import { Component } from '@angular/core';
   selector: 'app-root',
   template: `
   <app-header class="header"></app-header>
+
   <div class="wrapper">
     <router-outlet></router-outlet>
+    <mat-slider min="1" max="100" step="1" value="1"></mat-slider>
     <div class="push"></div>
   </div>
   <app-footer class="footer"></app-footer>`,

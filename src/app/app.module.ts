@@ -11,6 +11,8 @@ import {HousesModule} from './houses/houses.module';
 import {HarryPotterService} from './harrypotter.service';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSliderModule } from '@angular/material/slider';
 
 // ng g component houses
 @NgModule({
@@ -26,7 +28,9 @@ import { FooterComponent } from './footer/footer.component';
     HttpClientModule,
     CharactersModule,
     SpellsModule,
-    HousesModule
+    HousesModule,
+    BrowserAnimationsModule,
+    MatSliderModule,
   ],
   providers: [HarryPotterService],
   bootstrap: [AppComponent]
