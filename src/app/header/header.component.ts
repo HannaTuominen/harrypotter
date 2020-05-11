@@ -12,19 +12,27 @@ import {Router} from '@angular/router';
     <mat-toolbar color="primary">
       <mat-toolbar-row>
         <span class="menu-spacer"></span>
-        <div>
-          <a mat-button [routerLink]="'characters'" routerLinkActive="active">Characters</a>
-          <a mat-button [routerLink]="'houses'" routerLinkActive="active">Houses</a>
-          <a mat-button [routerLink]="'spells'" routerLinkActive="active">Spells</a>
-        </div>
+        <nav mat-tab-nav-bar>
+          <a mat-tab-link
+             *ngFor="let link of navLinks"
+             [routerLink]="link.path"
+             routerLinkActive #rla="routerLinkActive"
+             [active]="rla.isActive">
+            {{link.label}}
+          </a>
+        </nav>
         <span class="menu-spacer"></span>
       </mat-toolbar-row>
 
     </mat-toolbar>`,
-  styles: [`.active { background-color: #86162a; } .pointer {cursor: pointer} .menu-spacer {flex-grow: 1}`]
+  styles: [`.active { background-color: #86162a; } .pointer {cursor: pointer} .menu-spacer {flex-grow: 1} .mat-tab-link {color: white; }`]
 })
 export class HeaderComponent implements OnInit {
-
+  navLinks = [
+    {label: 'Houses', path: 'houses'},
+    {label: 'Characters', path: 'characters'},
+    {label: 'Spells', path: 'spells'}
+  ];
   constructor(private router: Router) { }
 
   ngOnInit(): void {
