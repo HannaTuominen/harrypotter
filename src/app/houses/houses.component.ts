@@ -6,19 +6,15 @@ import { HarryPotterService } from '../services/harrypotter.service';
 @Component({
   selector: 'app-houses',
   template: `
-  <mat-tab-group>
-<!--    <li *ngFor="let house of houses" [class.selected]="house._id == selectedId">-->
-<!--      <a routerLink="{{house._id}}">{{house.name}}</a>-->
-<!--    </li>-->
-    <ng-container *ngFor="let house of houses" [class.selected]="house._id == selectedId">
-      <mat-tab label="{{house.name}}" routerLink="{{house._id}}"> <a routerLink="{{house._id}}">{{house.name}}</a></mat-tab>
-    </ng-container>
-  </mat-tab-group>
-<!--  <ul>-->
-<!--    <li *ngFor="let house of houses" [class.selected]="house._id == selectedId">-->
-<!--      <a routerLink="{{house._id}}">{{house.name}}</a>-->
-<!--    </li>-->
-<!--  </ul>-->
+  <nav mat-tab-nav-bar>
+      <a mat-tab-link
+         *ngFor="let house of houses"
+         [routerLink]="house._id"
+         routerLinkActive #rla="routerLinkActive"
+         [active]="rla.isActive">
+        {{house.name}}
+      </a>
+  </nav>
   `,
   styles: ['.selected { background-color: lightgray;}']
 })
