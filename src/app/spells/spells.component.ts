@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Spell } from './spells-spell';
 import { ActivatedRoute, Params } from '@angular/router';
-import { HarryPotterService} from '../harrypotter.service';
+import { HarryPotterService} from '../services/harrypotter.service';
 
 @Component({
   selector: 'app-spells',

@@ -8,7 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import {CharactersModule} from './characters/characters.module';
 import {SpellsModule} from './spells/spells.module';
 import {HousesModule} from './houses/houses.module';
-import {HarryPotterService} from './harrypotter.service';
+import {HarryPotterService} from './services/harrypotter.service';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';

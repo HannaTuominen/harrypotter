@@ -2,7 +2,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import { Component, OnInit, } from '@angular/core';
 import { Character } from './characters-character';
-import {HarryPotterService} from '../harrypotter.service';
+import {HarryPotterService} from '../services/harrypotter.service';
 
 @Component({
   selector: 'app-view-detail',

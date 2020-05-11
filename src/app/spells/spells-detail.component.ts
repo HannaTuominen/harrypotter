@@ -2,7 +2,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import { Component, OnInit, } from '@angular/core';
 import { Spell } from './spells-spell';
-import {HarryPotterService} from '../harrypotter.service';
+import {HarryPotterService} from '../services/harrypotter.service';
 
 @Component({
   selector: 'app-view-detail',
@@ -15,7 +15,8 @@ export class SpellsDetailComponent implements OnInit {
   spell: Spell = {_id: '', spell: '', effect: '', type: ''};
   spells: Spell[] = [];
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute, private http: HttpClient, private harryPotterService: HarryPotterService) {}
+  constructor(private router: Router, private activatedRoute: ActivatedRoute, private http: HttpClient,
+              private harryPotterService: HarryPotterService) {}
 
   back() {
     this.router.navigate(['spells', {id: this.spell._id}]);

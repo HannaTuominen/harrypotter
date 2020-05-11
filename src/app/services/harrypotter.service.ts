@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders, HttpResponse, HttpErrorResponse, HttpParams} from '@angular/common/http';
-import {Character} from './characters/characters-character';
+import {Character} from '../characters/characters-character';
 
 @Injectable({
   providedIn: 'root'
