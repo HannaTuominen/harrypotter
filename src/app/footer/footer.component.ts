@@ -16,7 +16,7 @@ import { Component, OnInit } from '@angular/core';
     </div>
     </footer>
   `,
-  styles: [`.menu-spacer {flex-grow: 1} .footer { background-color: #c2c3c4;} .api-link {margin: 0 10px 0 0; text-align: end}`]
+  styles: [`.menu-spacer {flex-grow: 1} .footer { background-color: #86162a;} .api-link {margin: 0 10px 0 0; text-align: end; color: #c2c3c4} a { color: #c2c3c4}`]
 })
 export class FooterComponent implements OnInit {
 

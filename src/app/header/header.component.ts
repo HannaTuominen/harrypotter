@@ -21,7 +21,7 @@ import {Router} from '@angular/router';
       </mat-toolbar-row>
 
     </mat-toolbar>`,
-  styles: [`.active { background-color: lightgray; } .pointer {cursor: pointer} .menu-spacer {flex-grow: 1}`]
+  styles: [`.active { background-color: #86162a; } .pointer {cursor: pointer} .menu-spacer {flex-grow: 1}`]
 })
 export class HeaderComponent implements OnInit {
 
