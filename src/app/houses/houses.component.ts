@@ -5,12 +5,21 @@ import { HarryPotterService } from '../services/harrypotter.service';
 
 @Component({
   selector: 'app-houses',
-  template: `<h1>houses</h1>
-  <ul>
-    <li *ngFor="let house of houses" [class.selected]="house._id == selectedId">
-      <a routerLink="{{house._id}}">{{house.name}}</a>
-    </li>
-  </ul>`,
+  template: `
+  <mat-tab-group>
+<!--    <li *ngFor="let house of houses" [class.selected]="house._id == selectedId">-->
+<!--      <a routerLink="{{house._id}}">{{house.name}}</a>-->
+<!--    </li>-->
+    <ng-container *ngFor="let house of houses" [class.selected]="house._id == selectedId">
+      <mat-tab label="{{house.name}}" routerLink="{{house._id}}"> <a routerLink="{{house._id}}">{{house.name}}</a></mat-tab>
+    </ng-container>
+  </mat-tab-group>
+<!--  <ul>-->
+<!--    <li *ngFor="let house of houses" [class.selected]="house._id == selectedId">-->
+<!--      <a routerLink="{{house._id}}">{{house.name}}</a>-->
+<!--    </li>-->
+<!--  </ul>-->
+  `,
   styles: ['.selected { background-color: lightgray;}']
 })
 export class HousesComponent implements OnInit {

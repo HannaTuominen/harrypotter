@@ -5,7 +5,7 @@ import { House } from './houses-house';
 import { HarryPotterService } from '../services/harrypotter.service';
 
 @Component({
-  selector: 'app-view-detail',
+  selector: 'app-house-view-detail',
   template: `<h2>{{house.name}}</h2>
   <p>Founder: {{house.founder}}</p>
   <p>Head of House: {{house.headOfHouse}}</p>
