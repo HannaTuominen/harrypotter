@@ -18,14 +18,15 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatTabsModule} from '@angular/material/tabs';
-
+import {  MatInputModule } from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
 // ng g component houses
 @NgModule({
   declarations: [
     AppComponent,
     NotfoundComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,6 +42,8 @@ import {MatTabsModule} from '@angular/material/tabs';
     MatButtonModule,
     MatSidenavModule,
     MatTabsModule,
+    MatInputModule,
+    MatFormFieldModule
   ],
   providers: [HarryPotterService],
   bootstrap: [AppComponent]

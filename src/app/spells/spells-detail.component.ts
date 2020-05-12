@@ -5,7 +5,7 @@ import { Spell } from './spells-spell';
 import {HarryPotterService} from '../services/harrypotter.service';
 
 @Component({
-  selector: 'app-view-detail',
+  selector: 'app-viewspell-detail',
   template: `<h2>{{spell.spell}}</h2>
   <p>effect: {{spell.effect}}</p>
   <p>type: {{spell.type}}</p>

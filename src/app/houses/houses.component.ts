@@ -6,6 +6,10 @@ import { HarryPotterService } from '../services/harrypotter.service';
 @Component({
   selector: 'app-houses',
   template: `
+    <h1>Houses at Hogwarts</h1>
+    <p>Hogwarts School of Witchcraft and Wizardry, commonly shortened to Hogwarts, is a fictional British school of
+      magic for students aged eleven to eighteen.</p>
+    <p>Hogwarts has four different houses.</p>
     <mat-accordion>
       <mat-expansion-panel *ngFor="let house of houses" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
         <mat-expansion-panel-header >
