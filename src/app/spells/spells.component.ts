@@ -7,6 +7,7 @@ import {MatTableDataSource} from '@angular/material/table';
 @Component({
   selector: 'app-spells',
   template: `<h1>Spells</h1>
+  <p>There are currently {{spellAmount}} spells listed in the Harry Potter.</p>
   <mat-form-field>
     <mat-label>Filter</mat-label>
     <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Charm">
@@ -40,6 +41,8 @@ import {MatTableDataSource} from '@angular/material/table';
 export class SpellsComponent implements OnInit {
   dataSource;
   displayedColumns: string[] = ['name', 'effect', 'type'];
+  spellAmount;
+
   @ViewChild(MatSort, {static: true}) sort: MatSort;
 
   constructor(private activatedRoute: ActivatedRoute, private harryPotterService: HarryPotterService) { }
@@ -47,6 +50,7 @@ export class SpellsComponent implements OnInit {
   ngOnInit() {
     this.harryPotterService.fetchSpells((result) => {
       this.dataSource = new MatTableDataSource(result);
+      this.spellAmount = result.length;
       this.dataSource.sort = this.sort;
     });
   }

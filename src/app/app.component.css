@@ -5,7 +5,7 @@ html, body {
 }
 .content {
   min-height: 100%;
-  background-color: #e5ba30;
+  background-color: white;
 }
 .content-inside {
   padding: 20px 20px 50px;

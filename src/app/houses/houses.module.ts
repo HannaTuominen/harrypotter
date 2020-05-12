@@ -8,6 +8,7 @@ import { HousesRoutingModule } from './houses-routing.module';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 @NgModule({
   imports: [
@@ -16,7 +17,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     HousesRoutingModule,
     MatTabsModule,
     MatExpansionModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatGridListModule
   ],
   declarations: [
     HousesComponent,
