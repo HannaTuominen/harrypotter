@@ -6,31 +6,28 @@ import { HarryPotterService } from '../services/harrypotter.service';
 @Component({
   selector: 'app-houses',
   template: `
-  <nav mat-tab-nav-bar>
-      <a mat-tab-link
-         *ngFor="let house of houses"
-         [routerLink]="house._id"
-         routerLinkActive #rla="routerLinkActive"
-         [active]="rla.isActive">
-        {{house.name}}
-      </a>
-  </nav>
+    <mat-accordion>
+      <mat-expansion-panel *ngFor="let house of houses" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+        <mat-expansion-panel-header >
+          <mat-panel-title>
+            <b class="titleheader">{{house.name}}</b>
+          </mat-panel-title>
+          <mat-panel-description>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <app-house-view-detail [houseId]=house._id></app-house-view-detail>
+      </mat-expansion-panel>
+    </mat-accordion>
   `,
-  styles: ['.selected { background-color: lightgray;}']
+  styles: ['.selected { background-color: lightgray;} .titleheader { font-size: 18px}']
 })
 export class HousesComponent implements OnInit {
-
+  panelOpenState = false;
   houses: House[] = [];
-  selectedId: number;
 
   constructor(private activatedRoute: ActivatedRoute, private harryPotterService: HarryPotterService) { }
 
   ngOnInit() {
-    this.activatedRoute.params.subscribe((paramss: Params) => {
-      const id = paramss.id;
-      console.log(id);
-      this.selectedId = id;
-    });
     this.harryPotterService.fetchHouses((result) => {
       this.houses = result;
     });
