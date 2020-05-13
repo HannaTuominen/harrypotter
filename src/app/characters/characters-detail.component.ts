@@ -1,11 +1,11 @@
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import {HttpClient, HttpParams} from '@angular/common/http';
-import { Component, OnInit, } from '@angular/core';
+import {Component, Input, OnInit, } from '@angular/core';
 import { Character } from './characters-character';
 import {HarryPotterService} from '../services/harrypotter.service';
 
 @Component({
-  selector: 'app-view-detail',
+  selector: 'app-viewcharacter-detail',
   template: `<h2>{{character.name}}</h2>
   <p>Order of the Phoenix: {{character.orderOfThePhoenix}}</p>
   <p> Ministry of Magic: {{character.ministryOfMagic}}</p>
@@ -20,11 +20,10 @@ import {HarryPotterService} from '../services/harrypotter.service';
   <p>Boggart: {{character.boggart}}</p>
   <p>Patronus: {{character.patronus}}</p>
   <p>Species: {{character.species}}</p>
-  <p>Wand: {{character.wand}}</p>
-<!--  <p>date IS: {{character.name}} </p>-->
-  <button (click)="back()" href="">Back</button>`
+  <p>Wand: {{character.wand}}</p>`
 })
 export class CharactersDetailComponent implements OnInit {
+
   character: Character = {_id: '', name: '', bloodStatus: '', deathEater: undefined,
     dumbledoresArmy: undefined, house: 'unknown', ministryOfMagic: undefined, orderOfThePhoenix: undefined, role: '',
     school: 'unknown', alias: '', animagus: '', boggart: '', patronus: '', species: '', wand: ''};
@@ -32,16 +31,13 @@ export class CharactersDetailComponent implements OnInit {
   constructor(private router: Router, private activatedRoute: ActivatedRoute, private http: HttpClient,
               private harryPotterService: HarryPotterService) {}
 
-  back() {
-    this.router.navigate(['characters', {id: this.character._id}]);
-  }
-
   ngOnInit() {
     this.activatedRoute.params.subscribe((paramss: Params) => {
       const id = paramss.id;
       this.harryPotterService.fetchCharactersById(id, (jsonObject) => {
         this.character = jsonObject;
       });
+      // console.log('CHANGING CHARACTER DETAIL');
     });
   }
 

@@ -2,11 +2,11 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { CharactersComponent } from './characters.component';
-import { CharactersDetailComponent } from './characters-detail.component';
+// import { CharactersDetailComponent } from './characters-detail.component';
 
 const mySubRoutes: Routes = [
   { path: 'characters', component: CharactersComponent},
-  { path: 'characters/:id', component: CharactersDetailComponent}
+  { path: 'characters/:id', component: CharactersComponent}
 ];
 
 @NgModule({
