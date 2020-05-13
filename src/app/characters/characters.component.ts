@@ -30,8 +30,8 @@ import {MatTableDataSource} from '@angular/material/table';
       <table mat-table [dataSource]="characters" matSort class="mat-elevation-z8">
         <ng-container matColumnDef="name">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>Names</th>
-          <td mat-cell *matCellDef="let element">
-            <button mat-button color="primary"  (click)="newUrl(element._id); this.innerWidth <= 480 ? drawer.toggle(): null">
+          <td mat-cell *matCellDef="let element" (click)="newUrl(element._id); this.innerWidth <= 480 ? drawer.toggle(): null">
+            <button mat-button color="primary">
             {{element.name}}
             </button>
           </td>
@@ -108,7 +108,14 @@ import {MatTableDataSource} from '@angular/material/table';
   .container {
     padding: 15px
   }
-  `]
+  .mat-button {
+    padding: 0;
+    width: 100%;
+    height: 100%;
+  }
+  td.mat-cell:last-of-type {
+    padding:0;
+  }`]
 })
 export class CharactersComponent implements OnInit {
   showFiller = true;
