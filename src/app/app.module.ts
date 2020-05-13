@@ -20,6 +20,8 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatTabsModule} from '@angular/material/tabs';
 import {  MatInputModule } from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatCardModule} from '@angular/material/card';
+
 // ng g component houses
 @NgModule({
   declarations: [
@@ -43,7 +45,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     MatSidenavModule,
     MatTabsModule,
     MatInputModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatCardModule
   ],
   providers: [HarryPotterService],
   bootstrap: [AppComponent]
