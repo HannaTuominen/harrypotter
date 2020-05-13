@@ -31,9 +31,10 @@ import { HarryPotterService } from '../services/harrypotter.service';
           in countries where this system does not exist, no word could adequately convey the importance of belonging to a house,
           the loyalty owed to it, and the pride taken in prizes won by the house.</p>
       </div>
-       <div class="childOne">
-         <mat-accordion>
-           <mat-expansion-panel *ngFor="let house of houses" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+       <div>
+         <mat-accordion >
+           <mat-expansion-panel *ngFor="let house of houses" (opened)="panelOpenState = true" (closed)="panelOpenState = false"
+                                class="childOne">
              <mat-expansion-panel-header >
                <mat-panel-title>
                  <b class="titleheader">{{house.name}}</b>
@@ -45,7 +46,7 @@ import { HarryPotterService } from '../services/harrypotter.service';
            </mat-expansion-panel>
          </mat-accordion>
         </div>`,
-  styles: [`.selected { background-color: lightgray;} .titleheader { font-size: 18px} `]
+  styles: [`.selected { background-color: lightgray;} .titleheader { font-size: 18px} .childOne {box-shadow: none;}`]
 })
 export class HousesComponent implements OnInit {
   panelOpenState = false;
