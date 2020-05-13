@@ -6,13 +6,11 @@ import { Component, OnInit } from '@angular/core';
     <mat-toolbar color="primary">
         <div class="menu-spacer"></div>
         <div class="texts">
-          <div>
-            <span class="api-link">
-              Made by Hanna Tuominen
-            </span>
+          <div class="api-link">
+            <span>Made by Hanna Tuominen</span>
           </div>
-          <div>
-          <span class="api-link">
+          <div class="api-link">
+          <span>
             This site uses the <a href="https://www.potterapi.com/">Potter API</a>
           </span>
             </div>
