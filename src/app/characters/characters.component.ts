@@ -13,7 +13,7 @@ import { HarryPotterService} from '../services/harrypotter.service';
           <h1>Characters</h1>
         </div>
       <div class="char-btn" (click)="showFiller = false">
-        <button type="button" class="mat-button-toggle" (click)="drawer.toggle()">
+        <button type="button" class="button-side" (click)="drawer.toggle()">
           <span class="material-icons" mat-button >
           keyboard_arrow_left
           </span>
@@ -28,7 +28,7 @@ import { HarryPotterService} from '../services/harrypotter.service';
     </mat-drawer>
     <div class="example-sidenav-content">
       <div *ngIf="!showFiller" (click)="showFiller = true">
-        <button type="button" class="mat-button-toggle" (click)="drawer.toggle()">
+        <button type="button" class="button-side" (click)="drawer.toggle()">
         <span class="material-icons" mat-button >
         keyboard_arrow_right
         </span>
@@ -74,6 +74,11 @@ import { HarryPotterService} from '../services/harrypotter.service';
   .char-btn {
     flex-grow: 1;
     margin-right: 5px;
+  }
+  .button-side {
+    border-radius: 0;
+    border: none;
+    background: none;
   }`]
 })
 export class CharactersComponent implements OnInit {
