@@ -41,7 +41,7 @@ import {MatTableDataSource} from '@angular/material/table';
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
       </table>
     </mat-drawer>
-    <div class="example-sidenav-content">
+    <div class="container">
       <div *ngIf="!showFiller" (click)="showFiller = true">
         <button type="button" class="button-side" (click)="drawer.toggle()">
         <span class="material-icons" mat-button >
@@ -49,7 +49,7 @@ import {MatTableDataSource} from '@angular/material/table';
         </span>
         </button>
       </div>
-      <div class="container">
+      <div>
         <app-viewcharacter-detail [currentUrl]="this.router.url"></app-viewcharacter-detail>
       </div>
     </div>

@@ -10,20 +10,44 @@ import {Router} from '@angular/router';
       </div>
       <mat-toolbar-row>
         <span class="menu-spacer"></span>
-        <nav mat-tab-nav-bar>
-          <a mat-tab-link
+          <button mat-button
              *ngFor="let link of navLinks"
              [routerLink]="link.path"
-             routerLinkActive #rla="routerLinkActive"
-             [active]="rla.isActive">
+             routerLinkActive ="active">
             {{link.label}}
-          </a>
-        </nav>
+          </button>
         <span class="menu-spacer"></span>
       </mat-toolbar-row>
 
     </mat-toolbar>`,
-  styles: [`.active { background-color: #86162a; } .pointer {cursor: pointer} .menu-spacer {flex-grow: 1} .mat-tab-link {color: white; } .navbar-brand {padding: 0; margin: 0}`]
+  styles: [`
+    .active {
+    background-color: #9a1c1f;
+  }
+  .pointer {
+    cursor: pointer;
+    display: block;
+  }
+  .menu-spacer {
+    flex-grow: 1
+  }
+  .mat-tab-link {
+    color: white;
+  }
+  .navbar-brand {
+    padding: 0;
+    margin: 0;
+  }
+
+  mat-toolbar-row {
+    height: 50px;
+  }
+  .mat-button {
+    height: 100%;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  `]
 })
 export class HeaderComponent implements OnInit {
   navLinks = [
