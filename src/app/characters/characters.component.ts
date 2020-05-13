@@ -8,6 +8,11 @@ import { HarryPotterService} from '../services/harrypotter.service';
   template: `
   <mat-drawer-container class="example-container" autosize>
     <mat-drawer #drawer class="example-sidenav" mode="side" [opened]="true">
+        <button type="button" class="mat-button-toggle" (click)="showFiller = false">
+          <span class="material-icons" mat-button (click)="drawer.toggle()">
+          keyboard_arrow_left
+          </span>
+        </button>
       <h1>Characters</h1>
       <ul class="character-list">
         <li *ngFor="let character of characters" [class.selected]="character._id == selectedId">
@@ -16,9 +21,11 @@ import { HarryPotterService} from '../services/harrypotter.service';
       </ul>
     </mat-drawer>
     <div class="example-sidenav-content">
-      <div>
-        <button type="button" mat-button (click)="drawer.toggle()">
-          Toggle sidenav
+      <div *ngIf="!showFiller" >
+        <button type="button" class="mat-button-toggle" (click)="showFiller = true">
+        <span class="material-icons" mat-button (click)="drawer.toggle()">
+        keyboard_arrow_right
+        </span>
         </button>
       </div>
       <div>
@@ -53,7 +60,7 @@ import { HarryPotterService} from '../services/harrypotter.service';
   }`]
 })
 export class CharactersComponent implements OnInit {
-  showFiller = false;
+  showFiller = true;
   characters: Character[] = [];
   selectedId: number;
   constructor(public router: Router, private activatedRoute: ActivatedRoute, private harryPotterService: HarryPotterService) { }
