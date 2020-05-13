@@ -49,7 +49,7 @@ import {MatTableDataSource} from '@angular/material/table';
         </span>
         </button>
       </div>
-      <div>
+      <div class="container">
         <app-viewcharacter-detail [currentUrl]="this.router.url"></app-viewcharacter-detail>
       </div>
     </div>
@@ -105,6 +105,9 @@ import {MatTableDataSource} from '@angular/material/table';
     height: 40px;
   }
 
+  .container {
+    padding: 15px
+  }
   `]
 })
 export class CharactersComponent implements OnInit {

@@ -5,7 +5,8 @@ import { HarryPotterService } from '../services/harrypotter.service';
 @Component({
   selector: 'app-houses',
   template: `
-    <h1>Houses at Hogwarts</h1>
+    <div class="container">
+      <h1>Houses at Hogwarts</h1>
       <div class="childOne">
         <p>Hogwarts School of Witchcraft and Wizardry, commonly shortened to Hogwarts, is a fictional British school of
           magic for students aged eleven to eighteen.</p>
@@ -31,22 +32,33 @@ import { HarryPotterService } from '../services/harrypotter.service';
           in countries where this system does not exist, no word could adequately convey the importance of belonging to a house,
           the loyalty owed to it, and the pride taken in prizes won by the house.</p>
       </div>
-       <div>
-         <mat-accordion >
-           <mat-expansion-panel *ngFor="let house of houses" (opened)="panelOpenState = true" (closed)="panelOpenState = false"
-                                class="childOne">
-             <mat-expansion-panel-header >
-               <mat-panel-title>
-                 <b class="titleheader">{{house.name}}</b>
-               </mat-panel-title>
-               <mat-panel-description>
-               </mat-panel-description>
-             </mat-expansion-panel-header>
-             <app-house-view-detail [houseId]=house._id></app-house-view-detail>
-           </mat-expansion-panel>
-         </mat-accordion>
-        </div>`,
-  styles: [`.selected { background-color: lightgray;} .titleheader { font-size: 18px} .childOne {box-shadow: none;}`]
+      <div>
+        <mat-accordion >
+          <mat-expansion-panel *ngFor="let house of houses" (opened)="panelOpenState = true" (closed)="panelOpenState = false"
+                               class="childOne">
+            <mat-expansion-panel-header >
+              <mat-panel-title>
+                <b class="titleheader">{{house.name}}</b>
+              </mat-panel-title>
+              <mat-panel-description>
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <app-house-view-detail [houseId]=house._id></app-house-view-detail>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
+    </div>
+    `,
+  styles: [`
+  .titleheader {
+    font-size: 18px
+  }
+  .childOne {
+    box-shadow: none;
+  }
+  .container {
+    padding: 15px
+  }`]
 })
 export class HousesComponent implements OnInit {
   panelOpenState = false;

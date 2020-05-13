@@ -6,7 +6,8 @@ import {MatTableDataSource} from '@angular/material/table';
 
 @Component({
   selector: 'app-spells',
-  template: `<h1>Spells</h1>
+  template: `<div class="container">
+    <h1>Spells</h1>
   <p>There are currently {{spellAmount}} spells listed in the Harry Potter.</p>
   <mat-form-field>
     <mat-label>Filter</mat-label>
@@ -34,10 +35,11 @@ import {MatTableDataSource} from '@angular/material/table';
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
-
+</div>
   `,
   styles: [`.mat-form-field { font-size: 14px; width: 100%; }
-  .mat-elevation-z8 {box-shadow: none;}`]
+  .mat-elevation-z8 {box-shadow: none;}
+  .container {padding: 15px}`]
 })
 export class SpellsComponent implements OnInit {
   dataSource;
