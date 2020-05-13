@@ -1,13 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import { Character } from './characters-character';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import { HarryPotterService} from '../services/harrypotter.service';
+import {MatSort} from '@angular/material/sort';
+import {MatTableDataSource} from '@angular/material/table';
 
 @Component({
   selector: 'app-characters',
   template: `
   <mat-drawer-container class="example-container" autosize>
     <mat-drawer #drawer class="example-sidenav" mode="side" [opened]="true">
+
       <div class="characters">
         <div class="char-header">
           <h1>Characters</h1>
@@ -20,11 +23,24 @@ import { HarryPotterService} from '../services/harrypotter.service';
         </button>
       </div>
       </div>
-      <ul class="character-list">
-        <li *ngFor="let character of characters" [class.selected]="character._id == selectedId">
-          <button mat-button color="primary" (click)="newUrl(character._id)">{{character.name}}</button>
-        </li>
-      </ul>
+      <table mat-table [dataSource]="characters" matSort class="mat-elevation-z8">
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>
+            <mat-form-field>
+              <mat-label>Filter</mat-label>
+              <input matInput (keyup)="applyFilter($event)" placeholder="Filter by Name">
+            </mat-form-field>
+          </th>
+          <td mat-cell *matCellDef="let element">
+            <button mat-button color="primary" (click)="newUrl(element._id)">
+            {{element.name}}
+            </button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
     </mat-drawer>
     <div class="example-sidenav-content">
       <div *ngIf="!showFiller" (click)="showFiller = true">
@@ -72,19 +88,30 @@ import { HarryPotterService} from '../services/harrypotter.service';
     margin-right: 5px;
   }
   .char-btn {
-    flex-grow: 1;
     margin-right: 5px;
   }
   .button-side {
     border-radius: 0;
     border: none;
     background: none;
-  }`]
+  }
+  .mat-form-field {
+    font-size: 14px; width: 100%;
+  }
+
+    .mat-elevation-z8 {
+      box-shadow: none;
+    }
+
+  `]
 })
 export class CharactersComponent implements OnInit {
   showFiller = true;
-  characters: Character[] = [];
+  characters;
   selectedId: number;
+  displayedColumns: string[] = ['name'];
+  @ViewChild(MatSort, {static: true}) sort: MatSort;
+
   constructor(public router: Router, private activatedRoute: ActivatedRoute, private harryPotterService: HarryPotterService) { }
 
   newUrl(charId) {
@@ -99,8 +126,14 @@ export class CharactersComponent implements OnInit {
   });
 
   this.harryPotterService.fetchCharacters((result) => {
-    this.characters = result;
+    this.characters = new MatTableDataSource(result);
+    this.characters.sort = this.sort;
   });
+  }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.characters.filter = filterValue.trim().toLowerCase();
   }
 
 }
