@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, HostListener, OnInit, ViewChild} from '@angular/core';
 import { Character } from './characters-character';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import { HarryPotterService} from '../services/harrypotter.service';
@@ -32,7 +32,7 @@ import {MatTableDataSource} from '@angular/material/table';
             </mat-form-field>
           </th>
           <td mat-cell *matCellDef="let element">
-            <button mat-button color="primary" (click)="newUrl(element._id)">
+            <button mat-button color="primary"  (click)="newUrl(element._id); this.innerWidth <= 480 ? drawer.toggle(): null">
             {{element.name}}
             </button>
           </td>
@@ -110,25 +110,36 @@ export class CharactersComponent implements OnInit {
   characters;
   selectedId: number;
   displayedColumns: string[] = ['name'];
+  innerWidth: any;
+
   @ViewChild(MatSort, {static: true}) sort: MatSort;
 
   constructor(public router: Router, private activatedRoute: ActivatedRoute, private harryPotterService: HarryPotterService) { }
 
   newUrl(charId) {
+    if (this.innerWidth <= 480) {
+      this.showFiller = false;
+    }
     this.router.navigate(['characters', {id: charId}]);
   }
 
   ngOnInit() {
+    this.innerWidth = window.innerWidth;
 
-  this.activatedRoute.params.subscribe((paramss: Params) => {
+    this.activatedRoute.params.subscribe((paramss: Params) => {
     const id = paramss.id;
     this.selectedId = id;
   });
 
-  this.harryPotterService.fetchCharacters((result) => {
+    this.harryPotterService.fetchCharacters((result) => {
     this.characters = new MatTableDataSource(result);
     this.characters.sort = this.sort;
   });
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+    this.innerWidth = window.innerWidth;
   }
 
   applyFilter(event: Event) {
