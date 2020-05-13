@@ -23,14 +23,13 @@ import {MatTableDataSource} from '@angular/material/table';
         </button>
       </div>
       </div>
+      <mat-form-field>
+        <mat-label>Filter</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Filter by Name">
+      </mat-form-field>
       <table mat-table [dataSource]="characters" matSort class="mat-elevation-z8">
         <ng-container matColumnDef="name">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>
-            <mat-form-field>
-              <mat-label>Filter</mat-label>
-              <input matInput (keyup)="applyFilter($event)" placeholder="Filter by Name">
-            </mat-form-field>
-          </th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Names</th>
           <td mat-cell *matCellDef="let element">
             <button mat-button color="primary"  (click)="newUrl(element._id); this.innerWidth <= 480 ? drawer.toggle(): null">
             {{element.name}}
@@ -96,12 +95,15 @@ import {MatTableDataSource} from '@angular/material/table';
     background: none;
   }
   .mat-form-field {
-    font-size: 14px; width: 100%;
+    font-size: 14px;
+    width: 100%;
   }
-
-    .mat-elevation-z8 {
-      box-shadow: none;
-    }
+  .mat-elevation-z8 {
+    box-shadow: none;
+  }
+  tr.mat-header-row {
+    height: 40px;
+  }
 
   `]
 })
