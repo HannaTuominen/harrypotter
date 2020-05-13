@@ -36,7 +36,8 @@ import {MatTableDataSource} from '@angular/material/table';
   </table>
 
   `,
-  styles: [`.selected { background-color: lightgray;} .mat-form-field { font-size: 14px; width: 100%; } `]
+  styles: [`.mat-form-field { font-size: 14px; width: 100%; }
+  .mat-elevation-z8 {box-shadow: none;}`]
 })
 export class SpellsComponent implements OnInit {
   dataSource;
