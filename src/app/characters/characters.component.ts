@@ -7,29 +7,29 @@ import { HarryPotterService} from '../services/harrypotter.service';
   selector: 'app-characters',
   template: `
   <mat-drawer-container class="example-container" autosize>
-    <mat-drawer #drawer class="example-sidenav" mode="side">
+    <mat-drawer #drawer class="example-sidenav" mode="side" [opened]="true">
       <h1>Characters</h1>
-<!--      <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>-->
-<!--      <button (click)="showFiller = !showFiller" mat-raised-button>-->
-<!--        Toggle extra text-->
-<!--      </button>-->
-      <ul>
+      <ul class="character-list">
         <li *ngFor="let character of characters" [class.selected]="character._id == selectedId">
-          <Button (click)="newUrl(character._id)">{{character.name}}</Button>
+          <button mat-button color="primary" (click)="newUrl(character._id)">{{character.name}}</button>
         </li>
       </ul>
     </mat-drawer>
     <div class="example-sidenav-content">
-      <button type="button" mat-button (click)="drawer.toggle()">
-        Toggle sidenav
-      </button>
-      <app-viewcharacter-detail></app-viewcharacter-detail>
+      <div>
+        <button type="button" mat-button (click)="drawer.toggle()">
+          Toggle sidenav
+        </button>
+      </div>
+      <div>
+        <app-viewcharacter-detail [currentUrl]="this.router.url"></app-viewcharacter-detail>
+      </div>
     </div>
 
   </mat-drawer-container>
   `,
 
-  styles: [`.selected { background-color: lightgray;}
+  styles: [`
   .example-container {
     width: 100%;
     height: 100vh;
@@ -39,19 +39,24 @@ import { HarryPotterService} from '../services/harrypotter.service';
   .example-sidenav-content {
     display: flex;
     height: 100%;
-    align-items: center;
-    justify-content: center;
+    margin-left: 10px;
+    /*align-items: center;*/
+    /*justify-content: center;*/
   }
 
   .example-sidenav {
-    padding: 20px;
+    padding: 10px;
+    overflow: hidden;
+  }
+  .character-list {
+    list-style-type: none;
   }`]
 })
 export class CharactersComponent implements OnInit {
   showFiller = false;
   characters: Character[] = [];
   selectedId: number;
-  constructor(private router: Router, private activatedRoute: ActivatedRoute, private harryPotterService: HarryPotterService) { }
+  constructor(public router: Router, private activatedRoute: ActivatedRoute, private harryPotterService: HarryPotterService) { }
 
   newUrl(charId) {
     this.router.navigate(['characters', {id: charId}]);

@@ -14,4 +14,8 @@ $forest-app-warn:    mat-palette($mat-deep-orange, 500); // Orange <-- CUSTOM CO
 
 $forest-app-theme: mat-light-theme($forest-app-primary, $forest-app-accent, $forest-app-warn);
 
+.selected {
+  color: mat-color($forest-app-primary);
+}
+
 @include angular-material-theme($forest-app-theme);
