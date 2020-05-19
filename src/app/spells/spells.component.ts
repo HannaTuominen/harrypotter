@@ -8,7 +8,11 @@ import {MatTableDataSource} from '@angular/material/table';
   selector: 'app-spells',
   template: `<div class="container">
     <h1>Spells</h1>
-  <p>There are currently {{spellAmount}} spells listed.</p>
+    <div class="basic-info">
+      <div class="info-text"><p>There are currently {{spellAmount}} spells listed. Each of the spells have
+      different effects and types.</p></div>
+      <div><img class="spells-image" src="../../assets/spellsimage.png" alt="spells Image"></div>
+    </div>
   <mat-form-field>
     <mat-label>Filter</mat-label>
     <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Charm">
@@ -40,6 +44,9 @@ import {MatTableDataSource} from '@angular/material/table';
   styles: [`.mat-form-field { font-size: 14px; width: 100%; }
   .mat-elevation-z8 {box-shadow: none;}
   .container {padding: 15px}
+  .basic-info { display: flex;}
+  .spells-image {width: 100%}
+  .info-text {flex-grow: 1}
   @media only screen and (max-width: 480px) {
     .container {
       margin: 1px;
