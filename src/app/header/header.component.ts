@@ -9,7 +9,18 @@ import {HttpClient} from '@angular/common/http';
     <mat-toolbar color="primary">
       <!-- logo -->
       <div class="navbar-brand">
-        <img src="./assets/headerimage.png" alt="Header Image" width="100%" class="pointer" (click)="redirect()">
+        <div *ngIf="this.modeselect === 'Gryffindor'">
+          <img src="./assets/headerimage_gryffindor.png" alt="Header Image" width="100%" class="pointer" (click)="redirect()">
+        </div>
+        <div *ngIf="this.modeselect === 'Slytherin'">
+          <img src="./assets/headerimage_slytherin.png" alt="Header Image" width="100%" class="pointer" (click)="redirect()">
+        </div>
+        <div *ngIf="this.modeselect === 'Hufflepuff'">
+          <img src="./assets/headerimage_hufflepuff.png" alt="Header Image" width="100%" class="pointer" (click)="redirect()">
+        </div>
+        <div *ngIf="this.modeselect === 'Ravenclaw'">
+          <img src="./assets/headerimage_ravenclaw.png" alt="Header Image" width="100%" class="pointer" (click)="redirect()">
+        </div>
       </div>
       <mat-toolbar-row>
         <span class="menu-spacer-left">
