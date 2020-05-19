@@ -21,10 +21,15 @@ import { HarryPotterService } from '../services/harrypotter.service';
         <a href="characters;id={{member._id}}">{{member.name}}</a>
       </li></ul>
     </div>
-    <div><img src="../../assets/{{house.name}}.jfif" alt="house logo"></div>
+    <div><img class="image" src="../../assets/{{house.name}}.png" alt="house logo"></div>
   </div>
   `,
-  styles: [`.list {list-style: none} .container {display: flex}`]
+  styles: [`.list {list-style: none} .container {display: flex}
+  @media only screen and (max-width: 480px) {
+    .image {
+      width: 100%
+    }
+  }`]
 })
 export class HousesDetailComponent implements OnInit {
   house: House = {_id: '', colors: [], founder: '', headOfHouse: '', mascot: '', name: '', school: '', values: [], members: []};
