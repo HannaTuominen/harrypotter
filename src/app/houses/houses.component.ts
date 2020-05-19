@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { House } from './houses-house';
 import { ActivatedRoute, Params } from '@angular/router';
 import { HarryPotterService } from '../services/harrypotter.service';
+import { title } from 'process';
 @Component({
   selector: 'app-houses',
   template: `
@@ -24,10 +25,10 @@ import { HarryPotterService } from '../services/harrypotter.service';
 
           <p>
             In the early days of Hogwarts, the four founders hand-picked students for their Houses. When the founders worried how students
-            would be selected after their deaths, Godric Gryffindor took his hat off and they each added knowledge to it, allowing the Sorting
-            Hat to choose the students by judging each student's qualities and placing them in the most appropriate house. The student's own
-            choices may affect the decision: the clearest example is the Hat telling Harry that he would do well in Slytherin in the first
-            book, but ultimately selecting Gryffindor after Harry asks it not to put him in Slytherin.</p>
+            would be selected after their deaths, Godric Gryffindor took his hat off and they each added knowledge to it, allowing the
+            Sorting Hat to choose the students by judging each student's qualities and placing them in the most appropriate house.
+            The student's own choices may affect the decision: the clearest example is the Hat telling Harry that he would do well in
+            Slytherin in the first book, but ultimately selecting Gryffindor after Harry asks it not to put him in Slytherin.</p>
           <p>
             The translators of the books' foreign editions had difficulty translating the "house" concept;
             in countries where this system does not exist, no word could adequately convey the importance of belonging to a house,

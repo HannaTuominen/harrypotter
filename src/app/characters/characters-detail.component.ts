@@ -170,8 +170,6 @@ export class CharactersDetailComponent implements OnInit {
       this.harryPotterService.fetchCharacters((results) => {
         this.amountOfCharacters = results.length;
       });
-      console.log('CHANGING CHARACTER DETAIL' + this.currentUrl);
-      console.log(typeof(this.character.orderOfThePhoenix) + this.character.orderOfThePhoenix);
     });
   }
 
