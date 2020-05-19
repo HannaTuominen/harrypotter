@@ -8,7 +8,7 @@ import {MatTableDataSource} from '@angular/material/table';
   selector: 'app-spells',
   template: `<div class="container">
     <h1>Spells</h1>
-  <p>There are currently {{spellAmount}} spells listed in the Harry Potter.</p>
+  <p>There are currently {{spellAmount}} spells listed.</p>
   <mat-form-field>
     <mat-label>Filter</mat-label>
     <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Charm">
