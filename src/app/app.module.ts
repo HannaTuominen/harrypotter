@@ -23,6 +23,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatCardModule} from '@angular/material/card';
 import {_MatMenuDirectivesModule, MatMenuModule} from '@angular/material/menu';
 import {MatSelectModule} from '@angular/material/select';
+import {FormsModule} from '@angular/forms';
 
 // ng g component houses
 @NgModule({
@@ -51,7 +52,8 @@ import {MatSelectModule} from '@angular/material/select';
     MatCardModule,
     _MatMenuDirectivesModule,
     MatMenuModule,
-    MatSelectModule
+    MatSelectModule,
+    FormsModule
   ],
   providers: [HarryPotterService],
   bootstrap: [AppComponent]
