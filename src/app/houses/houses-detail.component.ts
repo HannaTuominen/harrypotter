@@ -6,20 +6,25 @@ import { HarryPotterService } from '../services/harrypotter.service';
 
 @Component({
   selector: 'app-house-view-detail',
-  template: `<p><b>Founder:</b> {{house.founder}}</p>
-  <p><b>Head of House:</b> {{house.headOfHouse}}</p>
-  <p><b>Mascot:</b> {{house.mascot}}</p>
-  <p><b>School:</b> {{house.school}}</p>
-  <p><b>Colors:</b>  {{house.name}} use these colors to identify themselves.</p>
-  <ul class="list"><li *ngFor="let color of house.colors">{{color}}</li></ul>
-  <p><b>values:</b>  {{house.name}} values these qualities in their members.</p>
-  <ul class="list"><li *ngFor="let value of house.values">{{value}}</li></ul>
-  <p><b>Members:</b> There are currently {{house.members.length}} notable members listed.</p>
-  <ul class="list"><li *ngFor="let member of house.members">
-    <a href="characters;id={{member._id}}">{{member.name}}</a>
-  </li></ul>
+  template: `<div class="container">
+    <div>
+      <p><b>Founder:</b> {{house.founder}}</p>
+      <p><b>Head of House:</b> {{house.headOfHouse}}</p>
+      <p><b>Mascot:</b> {{house.mascot}}</p>
+      <p><b>School:</b> {{house.school}}</p>
+      <p><b>Colors:</b>  {{house.name}} use these colors to identify themselves.</p>
+      <ul class="list"><li *ngFor="let color of house.colors">{{color}}</li></ul>
+      <p><b>values:</b>  {{house.name}} values these qualities in their members.</p>
+      <ul class="list"><li *ngFor="let value of house.values">{{value}}</li></ul>
+      <p><b>Members:</b> There are currently {{house.members.length}} notable members listed.</p>
+      <ul class="list"><li *ngFor="let member of house.members">
+        <a href="characters;id={{member._id}}">{{member.name}}</a>
+      </li></ul>
+    </div>
+    <div><img src="../../assets/{{house.name}}.jfif" alt="house logo"></div>
+  </div>
   `,
-  styles: [`.list {list-style: none}`]
+  styles: [`.list {list-style: none} .container {display: flex}`]
 })
 export class HousesDetailComponent implements OnInit {
   house: House = {_id: '', colors: [], founder: '', headOfHouse: '', mascot: '', name: '', school: '', values: [], members: []};
