@@ -27,7 +27,7 @@ import {MatTableDataSource} from '@angular/material/table';
         <mat-label>Filter</mat-label>
         <input matInput (keyup)="applyFilter($event)" placeholder="Filter by Name">
       </mat-form-field>
-      <table mat-table [dataSource]="characters" matSort class="mat-elevation-z8">
+      <table mat-table [dataSource]="characters" matSort class="mat-elevation-z8" width="100%">
         <ng-container matColumnDef="name">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>Names</th>
           <td mat-cell *matCellDef="let element" (click)="newUrl(element._id); this.innerWidth <= 480 ? drawer.toggle(): null">
@@ -75,6 +75,11 @@ import {MatTableDataSource} from '@angular/material/table';
   .example-sidenav {
     padding: 10px;
     overflow: hidden;
+  }
+  @media only screen and (max-width: 480px) {
+    .example-sidenav {
+      width: 100%;
+    }
   }
   .character-list {
     list-style-type: none;

@@ -141,7 +141,14 @@ import {HarryPotterService} from '../services/harrypotter.service';
       </div>
     </div>
   </ng-template>`,
-  styles: [`.helpBox {border: 1px solid black; width: fit-content; margin: 10px; padding:10px; float:right;} .infoText {width:70%} .container {display: flex}`]
+  styles: [`.helpBox {border: 1px solid black; width: fit-content; margin: 10px; padding:10px; float:right; }
+  .infoText {width:70%} .container {display: flex}
+  @media only screen and (max-width: 480px) {
+    .container {
+      display: inline-block;
+    }
+  }
+  `]
 })
 export class CharactersDetailComponent implements OnInit {
   @Input() currentUrl: string;

@@ -52,7 +52,6 @@ import {HttpClient} from '@angular/common/http';
     padding: 0;
     margin: 0;
   }
-
   mat-toolbar-row {
     height: 50px;
   }
