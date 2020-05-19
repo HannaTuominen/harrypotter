@@ -1,4 +1,4 @@
-import {Component, HostBinding, OnInit, Version} from '@angular/core';
+import {Component, EventEmitter, HostBinding, OnInit, Output, Version} from '@angular/core';
 import {Router} from '@angular/router';
 import {HarryPotterService} from '../services/harrypotter.service';
 import {OverlayContainer} from '@angular/cdk/overlay';
@@ -26,7 +26,7 @@ import {HttpClient} from '@angular/common/http';
         </span>
         <span class="theme">
             <mat-select [(ngModel)]="modeselect" [placeholder]="modeselect">
-              <mat-option *ngFor="let house of houses" [value]="house.name" (click)="onSetTheme(this.modeselect)">
+              <mat-option *ngFor="let house of houses" [value]="house.name" (click)="callParent(this.modeselect)">
                 {{house.name}}
               </mat-option>
             </mat-select>
@@ -76,28 +76,20 @@ export class HeaderComponent implements OnInit {
   ];
   houses = [];
   public modeselect = 'Gryffindor';
+  @Output() changeTheme = new EventEmitter<string>();
 
+  callParent(theme): void {
+    this.changeTheme.next(theme);
+  }
 
-  constructor(private router: Router, private harryPotterService: HarryPotterService,
-              public overlayContainer: OverlayContainer, private http: HttpClient) { }
-  version: Version;
-  @HostBinding('class') componentCssClass;
+  constructor(private router: Router, private harryPotterService: HarryPotterService) { }
+
   ngOnInit(): void {
     this.harryPotterService.fetchHouses((result) => {
       this.houses = result;
     });
-    this.getVersion();
   }
-  getVersion() {
-    this.http.get<Version>('/api/version')
-      .subscribe(data => {
-        this.version = data;
-      });
-  }
-  onSetTheme(theme) {
-    this.overlayContainer.getContainerElement().classList.add(theme);
-    this.componentCssClass = theme;
-  }
+
   redirect() {
     this.router.navigate(['./']);
   }
