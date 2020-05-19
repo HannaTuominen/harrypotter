@@ -24,6 +24,7 @@ import {MatCardModule} from '@angular/material/card';
 import {_MatMenuDirectivesModule, MatMenuModule} from '@angular/material/menu';
 import {MatSelectModule} from '@angular/material/select';
 import {FormsModule} from '@angular/forms';
+import { OverlayModule} from '@angular/cdk/overlay';
 
 // ng g component houses
 @NgModule({
@@ -53,7 +54,13 @@ import {FormsModule} from '@angular/forms';
     _MatMenuDirectivesModule,
     MatMenuModule,
     MatSelectModule,
-    FormsModule
+    FormsModule,
+    BrowserModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatCardModule,
+    MatButtonModule,
+    OverlayModule
   ],
   providers: [HarryPotterService],
   bootstrap: [AppComponent]

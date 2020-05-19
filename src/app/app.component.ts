@@ -20,24 +20,13 @@ import {Component, HostBinding, OnInit, Version} from '@angular/core';
 })
 export class AppComponent {
   title = 'Harry Potter';
-  currentTheme: string;
 
   constructor(private router: Router, private harryPotterService: HarryPotterService,
               public overlayContainer: OverlayContainer, private http: HttpClient) { }
 
-  version: Version;
   @HostBinding('class') componentCssClass;
 
-  ngOnInit() {
-    this.getVersion();
-  }
 
-  getVersion() {
-    this.http.get<Version>('/api/version')
-      .subscribe(data => {
-        this.version = data;
-      });
-  }
   onSetTheme(theme) {
     this.overlayContainer.getContainerElement().classList.add(theme);
     this.componentCssClass = theme;
