@@ -35,7 +35,7 @@ import { HarryPotterService } from '../services/harrypotter.service';
       <div>
         <mat-accordion >
           <mat-expansion-panel *ngFor="let house of houses" (opened)="panelOpenState = true" (closed)="panelOpenState = false"
-                               class="childOne">
+                               class="mat-elevation-z0">
             <mat-expansion-panel-header >
               <mat-panel-title>
                 <b class="titleheader">{{house.name}}</b>
@@ -52,9 +52,6 @@ import { HarryPotterService } from '../services/harrypotter.service';
   styles: [`
   .titleheader {
     font-size: 18px
-  }
-  .childOne {
-    box-shadow: none;
   }
   .container {
     padding: 15px

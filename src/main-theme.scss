@@ -16,8 +16,8 @@ $custom-typography: mat-typography-config(
 @include angular-material-typography($custom-typography);
 
 // Default Gryffindor colors
-$my-app-primary: mat-palette($mat-teal, 700, 100, 800);
-$my-app-accent:  mat-palette($mat-teal, 700, 100, 800);
+$my-app-primary: mat-palette($mat-red, 700, 100, 800);
+$my-app-accent:  mat-palette($mat-amber, 700, 100, 800);
 
 $Gryffindor: mat-light-theme($my-app-primary, $my-app-accent);
 @include angular-material-theme($Gryffindor);
@@ -27,16 +27,16 @@ $dark-primary: mat-palette($mat-blue-grey);
 $dark-accent:  mat-palette($mat-amber, A200, A100, A400);
 $dark-warn:    mat-palette($mat-deep-orange);
 
-$dark-theme:   mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
+$dark-theme:   mat-light-theme($dark-primary, $dark-accent, $dark-warn);
 
 .Hufflepuff {
   @include angular-material-theme($dark-theme);
 }
 
 // Slytherin theme
-$light-primary: mat-palette($mat-grey, 200, 500, 300);
-$light-accent: mat-palette($mat-brown, 200);
-$light-warn: mat-palette($mat-deep-orange, 200);
+$light-primary: mat-palette($mat-green, 900, 700, 400);
+$light-accent: mat-palette($mat-teal, 400);
+$light-warn: mat-palette($mat-grey, 700);
 
 $light-theme: mat-light-theme($light-primary, $light-accent, $light-warn);
 
@@ -45,9 +45,9 @@ $light-theme: mat-light-theme($light-primary, $light-accent, $light-warn);
 }
 
 // Ravenclaw theme
-$light-primary: mat-palette($mat-grey, 200, 500, 300);
-$light-accent: mat-palette($mat-brown, 200);
-$light-warn: mat-palette($mat-deep-orange, 200);
+$light-primary: mat-palette($mat-indigo, 800, 500, 200);
+$light-accent: mat-palette($mat-blue, 200);
+$light-warn: mat-palette($mat-grey, 700);
 
 $light-theme: mat-light-theme($light-primary, $light-accent, $light-warn);
 

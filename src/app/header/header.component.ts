@@ -18,7 +18,7 @@ import {HttpClient} from '@angular/common/http';
           <button mat-button
                   *ngFor="let link of navLinks"
                   [routerLink]="link.path"
-                  routerLinkActive ="active">
+                  routerLinkActive ="mat-accent">
             {{link.label}}
           </button>
         </span>
@@ -35,9 +35,6 @@ import {HttpClient} from '@angular/common/http';
 
     </mat-toolbar>`,
   styles: [`
-    .active {
-    background-color: #9a1c1f;
-  }
   .pointer {
     cursor: pointer;
     display: block;
