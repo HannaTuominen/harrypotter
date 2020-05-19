@@ -21,8 +21,7 @@ import {Component, HostBinding, OnInit, Version} from '@angular/core';
 export class AppComponent {
   title = 'Harry Potter';
 
-  constructor(private router: Router, private harryPotterService: HarryPotterService,
-              public overlayContainer: OverlayContainer, private http: HttpClient) { }
+  constructor(public overlayContainer: OverlayContainer) { }
 
   @HostBinding('class') componentCssClass;
 
