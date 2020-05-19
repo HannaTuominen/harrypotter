@@ -51,4 +51,7 @@ export class HarryPotterService {
     this.http.get<Character>('https://www.potterapi.com/v1/characters/', {responseType: 'json', params})
       .subscribe(response => callBackFunction(response));
   }
+  fetchRandomHouseName(callBackFunction) {
+
+  }
 }

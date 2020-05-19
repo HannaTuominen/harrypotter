@@ -21,6 +21,8 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {  MatInputModule } from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatCardModule} from '@angular/material/card';
+import {_MatMenuDirectivesModule, MatMenuModule} from '@angular/material/menu';
+import {MatSelectModule} from '@angular/material/select';
 
 // ng g component houses
 @NgModule({
@@ -46,7 +48,10 @@ import {MatCardModule} from '@angular/material/card';
     MatTabsModule,
     MatInputModule,
     MatFormFieldModule,
-    MatCardModule
+    MatCardModule,
+    _MatMenuDirectivesModule,
+    MatMenuModule,
+    MatSelectModule
   ],
   providers: [HarryPotterService],
   bootstrap: [AppComponent]
